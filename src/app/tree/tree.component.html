@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let item of items">
+    <span>{{ item.item }}</span>
+    <button (click)="addChild(item)">Add Child</button>
+    <app-tree *ngIf="item.children" [items]="item.children"></app-tree>
+  </li>
+</ul>
