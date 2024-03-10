@@ -37,7 +37,7 @@ export class IterateTreeComponent {
       }
     }
 
-    return result.reverse().reverse();
+    return result;
   }
 
   addChildNode(parentNode: Item): void {
