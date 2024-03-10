@@ -21,15 +21,23 @@ export class IterateTreeComponent {
     let result: { item: Item, level: number }[] = [];
     if (!items) return result;
 
-    const stack = items.map(item => ({ item, level }));
+    const stack: { item: Item, level: number }[] = [];
+    for (let i = items.length - 1; i >= 0; i--) {
+      stack.push({ item: items[i], level });
+    }
+
     while (stack.length) {
       const { item, level } = stack.pop()!;
       result.push({ item, level });
       if (item.children) {
-        stack.push(...item.children.map(child => ({ item: child, level: level + 1 })));
+        // Push children onto the stack in reverse order to maintain original order
+        for (let i = item.children.length - 1; i >= 0; i--) {
+          stack.push({ item: item.children[i], level: level + 1 });
+        }
       }
     }
-    return result;
+
+    return result.reverse().reverse();
   }
 
   addChildNode(parentNode: Item): void {

@@ -2,9 +2,6 @@ import { Component } from '@angular/core';
 interface Item {
   item: string;
   children?: Item[];
-}interface Item {
-  item: string;
-  children?: Item[];
 }
 @Component({
   selector: 'app-root',

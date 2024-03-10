@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 interface Item {
   item: string;
   children?: Item[];
@@ -8,8 +8,15 @@ interface Item {
   templateUrl: './tree.component.html',
   styleUrls: ['./tree.component.css']
 })
-export class TreeComponent {
+export class TreeComponent implements OnInit{
   @Input() items!: Item[];
+
+  itemsLocal: Item[] = [];
+  constructor() {
+  }
+  ngOnInit() {
+    this.itemsLocal = this.items ;
+  }
 
   addChild(parent: Item) {
     if (!parent.children) {
