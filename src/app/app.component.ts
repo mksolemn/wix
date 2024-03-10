@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
 interface Item {
   item: string;
   children?: Item[];
 }
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,8 +17,20 @@ export class AppComponent {
     {
       item: 'Root',
       children: [
-        { item: 'Branch 1', children: [{ item: 'Leaf 1.1' }, { item: 'Leaf 1.2' }] },
-        { item: 'Branch 2', children: [{ item: 'Leaf 2.1' }, { item: 'Leaf 2.2' }] }
+        {
+          item: 'Branch 1',
+          children: [
+            {item: 'Leaf 1.1'},
+            {item: 'Leaf 1.2'}
+          ]
+        },
+        {
+          item: 'Branch 2',
+          children: [
+            {item: 'Leaf 2.1'},
+            {item: 'Leaf 2.2'}
+          ]
+        }
       ]
     }
   ];
@@ -25,8 +39,36 @@ export class AppComponent {
     {
       item: 'Root',
       children: [
-        { item: 'Branch 1', children: [{ item: 'Leaf 1.1' }, { item: 'Leaf 1.2' }] },
-        { item: 'Branch 2', children: [{ item: 'Leaf 2.1' }, { item: 'Leaf 2.2' }] }
+        {
+          item: 'Branch 1',
+          children: [
+            {
+              item: 'Leaf 1.1'
+            },
+            {
+              item: 'Leaf 1.2'
+            }
+          ]
+        },
+        {
+          item: 'Branch 2',
+          children: [
+            {
+              item: 'Leaf 2.1'
+            },
+            {
+              item: 'Leaf 2.2',
+              children: [
+                {
+                  item: 'Leaf 2.1'
+                },
+                {
+                  item: 'Leaf 2.2'
+                }
+              ]
+            }
+          ]
+        }
       ]
     }
   ];

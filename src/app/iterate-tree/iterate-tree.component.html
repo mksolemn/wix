@@ -1,7 +1,6 @@
 <div>
   <ul>
     <li *ngFor="let node of getNestedItems(items)"
-        [ngClass]="{'has-children': hasChildren(node.item)}"
         [style.padding-left.px]="node.level * 20">
       <span>{{ node.item.item }}</span>
       <button (click)="addChildNode(node.item)">Add Child</button>

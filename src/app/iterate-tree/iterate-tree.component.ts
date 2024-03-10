@@ -13,10 +13,6 @@ export class IterateTreeComponent {
 
   constructor() {}
 
-  hasChildren(item: Item): any {
-    return item.children && item.children.length > 0;
-  }
-
   getNestedItems(items: Item[] | undefined, level: number = 0): { item: Item, level: number }[] {
     let result: { item: Item, level: number }[] = [];
     if (!items) return result;
